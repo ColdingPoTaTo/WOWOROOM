@@ -88,7 +88,6 @@ function validateForm() {
             }
         }
     }
-    return;
     sendOrder(model);
 }
 
@@ -180,9 +179,8 @@ function deleteHoldCart() {
 function sendOrder(model) {
     axios.post(`${baseUrl}/customer/${api_path}/orders`, model)
         .then(function (response) {
-            console.log(response)
             alert("訂單送出成功");
-            //deleteHoldCart();
+            getCart();
         })
         .catch(function (error) {
             console.log(error);
