@@ -90,6 +90,12 @@ function validateForm() {
     }
     sendOrder(model);
 }
+//清除表單
+function clearForm() {
+    document.querySelectorAll(`#orderInfo form input`).forEach(item => {
+        item.value = "";
+    })
+}
 
 // #endregion ----------------- 邏輯流程 ------------------
 
@@ -181,6 +187,7 @@ function sendOrder(model) {
         .then(function (response) {
             alert("訂單送出成功");
             getCart();
+            clearForm();
         })
         .catch(function (error) {
             console.log(error);
